@@ -53,19 +53,6 @@
         dotsContainer.appendChild(dot);
       });
 
-      // Add navigation arrows
-      const prev = document.createElement('a');
-      prev.className = 'prev';
-      prev.innerHTML = '&#10094;';
-      prev.onclick = () => plusSlides(-1);
-      slideshowContainer.appendChild(prev);
-
-      const next = document.createElement('a');
-      next.className = 'next';
-      next.innerHTML = '&#10095;';
-      next.onclick = () => plusSlides(1);
-      slideshowContainer.appendChild(next);
-
       let slideIndex = 1;
       showSlides(slideIndex);
 
