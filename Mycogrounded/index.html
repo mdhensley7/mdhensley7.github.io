@@ -15,16 +15,83 @@
       <nav class="jmenu">
         <ul>
           <li><a href="https://mdhensley7.github.io/">Home</a></li>
-          <li><a href="https://jzraiti.github.io/Resume/index.html">Resume</a></li> 
+          <li><a href="https://mdhensley7.github.io/Resume/index.html">Resume</a></li> 
           <li><a href="https://mdhensley7.github.io/Blog/index.html">Blog</a></li>
-          <li><a href="https://jzraiti.github.io/Mycogrounded/index.html">Mycogrounded</a></li>
+          <li><a href="https://mdhensley7.github.io/Mycogrounded/index.html">Mycogrounded</a></li>
         </ul>
       </nav>
     </section>
 
     <div class="box">
       <h1> Mycogrounded </h1>
-
+      <div class="slideshow-container" id="slideshow-container"></div>
+      <br>
+      <div style="text-align:center" id="dots-container"></div>
     </div>
+
+    <script>
+      const imageFolder = 'AmanitaPics/';
+      const images = ['pic1.jpg', 'pic2.jpg', 'pic3.jpg']; // Add your image filenames here
+
+      const slideshowContainer = document.getElementById('slideshow-container');
+      const dotsContainer = document.getElementById('dots-container');
+
+      images.forEach((image, index) => {
+        // Create slide
+        const slideDiv = document.createElement('div');
+        slideDiv.className = 'slides';
+        const img = document.createElement('img');
+        img.src = imageFolder + image;
+        img.style.width = '100%';
+        slideDiv.appendChild(img);
+        slideshowContainer.appendChild(slideDiv);
+
+        // Create dot
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        dot.onclick = () => currentSlide(index + 1);
+        dotsContainer.appendChild(dot);
+      });
+
+      // Add navigation arrows
+      const prev = document.createElement('a');
+      prev.className = 'prev';
+      prev.innerHTML = '&#10094;';
+      prev.onclick = () => plusSlides(-1);
+      slideshowContainer.appendChild(prev);
+
+      const next = document.createElement('a');
+      next.className = 'next';
+      next.innerHTML = '&#10095;';
+      next.onclick = () => plusSlides(1);
+      slideshowContainer.appendChild(next);
+
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName('slides');
+        let dots = document.getElementsByClassName('dot');
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = 'none';
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(' active', '');
+        }
+        slides[slideIndex-1].style.display = 'block';
+        dots[slideIndex-1].className += ' active';
+      }
+    </script>
   </body>
 </html>
