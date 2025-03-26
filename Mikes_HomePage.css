@@ -6,7 +6,7 @@
 body{
 margin: 0;
 padding: 0;
-background: url(jupiterBlue.png) no-repeat;
+background: url(Content/BackgroundMush.JPG) no-repeat;
 background-size: cover;
 }
 .box{
@@ -22,8 +22,8 @@ font-family: 'Century Gothic',sans-serif;
 }
 .box-img{
 border-radius: 50%;
-width: 200px;
-height: 200px;
+width: 250px;
+height: 333px;
 }
 .box h1{
 font-size: 40px;
