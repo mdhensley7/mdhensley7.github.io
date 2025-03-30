@@ -57,6 +57,70 @@ transition: all ease-in-out 250ms;
 color: #b9b9b9;
 }
 
+/*this is the same box as the one above, but designated for a second box on homepage to put it next to the first one*/
+.boxhome1{
+width: 450px;
+background: rgba(0, 0, 0, 0.4);
+padding: 40px;
+text-align: center;
+margin: auto;
+margin-top: 5%;
+margin-bottom: 5%;
+color: white;
+font-family: 'Century Gothic',sans-serif;
+}
+.boxhome1-img{
+border-radius: 50%;
+width: 250px;
+height: 333px;
+}
+.boxhome1 h1{
+font-size: 40px;
+letter-spacing: 4px;
+font-weight: 100;
+}
+.boxhome1 h5{
+font-size: 20px;
+letter-spacing: 3px;
+font-weight: 100;
+}
+.boxhome1 p{
+text-align: justify;
+}
+ul{
+margin: 0;
+padding: 0;
+}
+.boxhome1 li{
+display: inline-block;
+margin: 6px;
+list-style: none;
+}
+.boxhome1 li a{
+color: white;
+text-decoration: none;
+font-size: 60px;
+transition: all ease-in-out 250ms;
+}
+.boxhome1 li a:hover{
+color: #b9b9b9;
+}
+
+/*Here's the code that allows the two boxes to be next to each other on the homepage*/
+.container {
+  display: flex; /* Enables flexbox layout */
+  justify-content: space-between; /* Adds space between the boxes */
+  align-items: flex-start; /* Aligns boxes at the top */
+  gap: 20px; /* Adds spacing between the boxes */
+  margin: 20px auto; /* Centers the container */
+  max-width: 1200px; /* Limits the container width */
+}
+
+.box, .boxhome1 {
+  flex: 1; /* Ensures both boxes take equal width */
+  max-width: 48%; /* Prevents boxes from being too wide */
+}
+
 /*box style for about me page*/
 .box2{
 width: 900px; /*double the width of the original box*/
