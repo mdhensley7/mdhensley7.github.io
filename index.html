@@ -36,32 +36,59 @@
     </div>
 
     <div class="boxhome1">
-      
+
       <div id="fungi-observations" class="inaturalist-container">
         <h2>Recent Fungi Observations</h2>
         <ul id="observations-list"></ul>
       </div>
       
-      <script>
-        const apiUrl = "https://api.inaturalist.org/v1/observations?taxon_id=47170&per_page=5";
-      
-        fetch(apiUrl)
-          .then(response => response.json())
-          .then(data => {
-            const observationsList = document.getElementById("observations-list");
-            data.results.forEach(observation => {
-              const listItem = document.createElement("li");
-              listItem.innerHTML = `
-                <a href="${observation.uri}" target="_blank">
-                  <img src="${observation.photos[0]?.url || ''}" alt="${observation.species_guess}" style="width:100px; height:auto;">
-                  <p>${observation.species_guess || "Unknown Species"}</p>
-                </a>
-              `;
-              observationsList.appendChild(listItem);
-            });
-          })
-          .catch(error => console.error("Error fetching iNaturalist data:", error));
-      </script>
+<script>
+  const apiUrl = "https://api.inaturalist.org/v1/observations?taxon_id=47170&per_page=5";
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      const observationsList = document.getElementById("observations-list");
+
+      // Create a slide for each observation
+      data.results.forEach(observation => {
+        const listItem = document.createElement("li");
+        listItem.className = "observation-slide"; // Add a class for styling and control
+        listItem.style.display = "none"; // Initially hide all slides
+        listItem.innerHTML = `
+          <a href="${observation.uri}" target="_blank">
+            <img src="${observation.photos[0]?.url || ''}" alt="${observation.species_guess}" style="width:300px; height:auto;">
+            <p>${observation.species_guess || "Unknown Species"}</p>
+          </a>
+        `;
+        observationsList.appendChild(listItem);
+      });
+
+      // Slideshow logic
+      let currentIndex = 0;
+      const slides = document.getElementsByClassName("observation-slide");
+
+      function showSlide(index) {
+        // Hide all slides
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        // Show the current slide
+        slides[index].style.display = "block";
+      }
+
+      function startSlideshow() {
+        showSlide(currentIndex); // Show the current slide
+        currentIndex = (currentIndex + 1) % slides.length; // Move to the next slide
+        setTimeout(startSlideshow, 5000); // Change slide every 5 seconds
+      }
+
+      if (slides.length > 0) {
+        startSlideshow(); // Start the slideshow if there are slides
+      }
+    })
+    .catch(error => console.error("Error fetching iNaturalist data:", error));
+</script>
 
       <p>
         Welcome weary traveler!
