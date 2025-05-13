@@ -61,7 +61,7 @@
           <a href="${observation.uri}" target="_blank">
             <img src="${observation.photos[0]?.url.replace('square', 'large') || ''}" alt="${observation.taxon.name}" style="width:300px; height:auto;">
             <p><strong>Common Name:</strong> ${observation.species_guess}</p> <!-- Display common name -->
-            <p><em>Scientific Name:</em> ${observation.taxon.name}</p> <!-- Display scientific name in italics -->
+            <p>Scientific Name: <em>${observation.taxon.name}</em></p> <!-- Display scientific name in italics -->
           </a>
         `;
         observationsList.appendChild(listItem);
