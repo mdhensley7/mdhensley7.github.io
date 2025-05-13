@@ -108,7 +108,7 @@ color: #b9b9b9;
 
 /*inaturalist window stylized*/
 .inaturalist-container {
-  background-color: #f9f9f9;
+  background-color: #545454a1;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
@@ -132,6 +132,20 @@ color: #b9b9b9;
 .inaturalist-container img {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the "Recent Fungi Observations" heading */
+.inaturalist-container h2 {
+  color: white; /* Change text color to black */
+  font-family: 'Roboto', sans-serif; /* Match the font of the website */
+}
+
+/* Style for the observation names */
+.inaturalist-container p {
+  color: white; /* Change text color to black */
+  font-family: 'Roboto', sans-serif; /* Match the font of the website */
+  font-size: 16px; /* Optional: Adjust font size if needed */
+  margin-top: 10px; /* Optional: Add spacing above the text */
 }
 
 /*Here's the code that allows the two boxes to be next to each other on the homepage*/
