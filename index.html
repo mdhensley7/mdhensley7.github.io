@@ -43,22 +43,24 @@
       </div>
       
 <script>
-  const apiUrl = "https://api.inaturalist.org/v1/observations?taxon_id=47170&per_page=5&order_by=random";
+  const apiUrl = "https://api.inaturalist.org/v1/observations?taxon_id=47170&per_page=20&order_by=random";
 
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
       const observationsList = document.getElementById("observations-list");
 
-      // Create a slide for each observation
-      data.results.forEach(observation => {
+   // Create a slide for each observation, excluding "Unknown Species"
+   data.results
+      .filter(observation => observation.species_guess) // Exclude observations without a species_guess
+      .forEach(observation => {
         const listItem = document.createElement("li");
         listItem.className = "observation-slide"; // Add a class for styling and control
         listItem.style.display = "none"; // Initially hide all slides
         listItem.innerHTML = `
           <a href="${observation.uri}" target="_blank">
             <img src="${observation.photos[0]?.url.replace('square', 'large') || ''}" alt="${observation.species_guess}" style="width:300px; height:auto;">
-            <p>${observation.species_guess || "Unknown Species"}</p>
+            <p>${observation.species_guess}</p>
           </a>
         `;
         observationsList.appendChild(listItem);
