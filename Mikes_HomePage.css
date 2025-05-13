@@ -167,6 +167,20 @@ color: #b9b9b9;
   box-sizing: border-box; /* Includes padding and border in width calculation */
 }
 
+/* Here is the code for the box on the bottom of the homepage*/
+/* This box is styled similarly to the others but is centered and has a different width */
+.boxhome2 {
+  width: 100%; /* Full width of the container */
+  background: rgba(0, 0, 0, 0.4); /* Same background as other boxes */
+  padding: 40px; /* Same padding as other boxes */
+  text-align: center; /* Center-align content */
+  margin: 20px auto; /* Add spacing above and below */
+  color: white; /* Same text color as other boxes */
+  font-family: 'Century Gothic', sans-serif; /* Match the font */
+  box-sizing: border-box; /* Include padding in width calculation */
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
+
 /*box style for about me page*/
 .box2{
 width: 900px; /*double the width of the original box*/
