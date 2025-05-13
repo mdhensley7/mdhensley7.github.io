@@ -38,12 +38,12 @@
     <div class="boxhome1">
 
       <div id="fungi-observations" class="inaturalist-container">
-        <h2>Recent Fungi Observations</h2>
+        <h2>Recent Inaturalist Observations</h2>
         <ul id="observations-list"></ul>
       </div>
       
 <script>
-  const apiUrl = "https://api.inaturalist.org/v1/observations?taxon_id=47170&per_page=50&order_by=random";
+  const apiUrl = `https://api.inaturalist.org/v1/observations?taxon_id=47170&per_page=50&order_by=random&random_seed=${Math.random()}`;
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -109,16 +109,5 @@
       </p>
     </div>
   </div>
-    
-    <div class="intro-box">
-      <h2>About Me</h2>
-      <p>
-        Hi, I'm Mike Hensley!
-      </p>
-      <p>
-        I specialize in fungal biology and love exploring the fascinating world of fungi. 
-        Welcome to my personal website!
-      </p>
-    </div>
   </body>
 </html>
