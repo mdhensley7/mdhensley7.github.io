@@ -57,7 +57,7 @@
         listItem.style.display = "none"; // Initially hide all slides
         listItem.innerHTML = `
           <a href="${observation.uri}" target="_blank">
-            <img src="${observation.photos[0]?.url || ''}" alt="${observation.species_guess}" style="width:300px; height:auto;">
+            <img src="${observation.photos[0]?.url.replace('square', 'large') || ''}" alt="${observation.species_guess}" style="width:300px; height:auto;">
             <p>${observation.species_guess || "Unknown Species"}</p>
           </a>
         `;
@@ -80,7 +80,10 @@
       function startSlideshow() {
         showSlide(currentIndex); // Show the current slide
         currentIndex = (currentIndex + 1) % slides.length; // Move to the next slide
-        setTimeout(startSlideshow, 5000); // Change slide every 5 seconds
+        setInterval(() => {
+          showSlide(currentIndex); // Show the current slide
+          currentIndex = (currentIndex + 1) % slides.length; // Move to the next slide
+        }, 10000); // Change slide every 10 seconds
       }
 
       if (slides.length > 0) {

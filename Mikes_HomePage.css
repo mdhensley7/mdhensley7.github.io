@@ -126,6 +126,7 @@ color: #b9b9b9;
   display: inline-block;
   margin: 10px;
   text-align: center;
+  color: #333;
 }
 
 .inaturalist-container img {
