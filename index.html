@@ -43,7 +43,7 @@
       </div>
       
 <script>
-  const apiUrl = "https://api.inaturalist.org/v1/observations?taxon_id=47170&per_page=5";
+  const apiUrl = "https://api.inaturalist.org/v1/observations?taxon_id=47170&per_page=5&order_by=random";
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -83,7 +83,7 @@
         setInterval(() => {
           showSlide(currentIndex); // Show the current slide
           currentIndex = (currentIndex + 1) % slides.length; // Move to the next slide
-        }, 10000); // Change slide every 10 seconds
+        }, 7000); // Change slide every 7 seconds
       }
 
       if (slides.length > 0) {
