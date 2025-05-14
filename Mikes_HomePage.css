@@ -60,7 +60,6 @@ color: #b9b9b9;
 /*this is the same box as the one above, but designated for a second box on homepage to put it next to the first one*/
 .boxhome1{
 width: 450px;
-height: 600px;
 background: rgba(0, 0, 0, 0.4);
 padding: 40px;
 text-align: center;
