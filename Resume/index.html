@@ -24,9 +24,26 @@
     </section>
 
     <div class="box">
-      <h1> Resume </h1>
-      <iframe src="https://docs.google.com/document/d/1ghTkKPx-kcfsg0wNbuzqYNYo9ODQJBZi/preview" width="100%" height="600px"></iframe>
-
+      <h1> Curriculum Vitae </h1>
+      <button onclick="openFullscreen()">Full Screen</button>
+      <iframe id="cv-iframe" src="https://docs.google.com/document/d/1ghTkKPx-kcfsg0wNbuzqYNYo9ODQJBZi/preview" width="100%" height="600px"></iframe>
     </div>
+
+    <script>
+function openFullscreen() {
+  const iframe = document.getElementById('cv-iframe');
+  if (iframe.requestFullscreen) {
+    iframe.requestFullscreen();
+  } else if (iframe.webkitRequestFullscreen) { /* Safari */
+    iframe.webkitRequestFullscreen();
+  } else if (iframe.msRequestFullscreen) { /* IE11 */
+    iframe.msRequestFullscreen();
+  }
+}
+</script>
+
+    <footer>
+      <p>Last updated: June 2025</p>
+    </footer>
   </body>
 </html>
